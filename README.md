@@ -1,32 +1,21 @@
-## Cron Monitor & Error Alert System - Project Documentation
+# Cron Monitor & Error Alert System - Project Documentation
 
-# 1. Project Overview
+## 1. Project Overview
 
 The Cron Monitor & Error Alert System is a security-conscious Python application designed to monitor cron job executions and send immediate alerts when failures occur. It parses system cron logs, detects errors, and notifies administrators via configurable channels (primarily email). The system is built with security as a primary consideration, ensuring no sensitive data is exposed in configuration files or logs.
 
 Purpose: To provide reliable monitoring for critical scheduled tasks with minimal configuration overhead and maximum security.
 
-2. Features
-
-
-
+## 2. Features
 
 
 Automated Cron Log Monitoring: Continuously watches system cron logs for execution failures
 
-
-
 Multi-channel Alerting: Configurable email notifications with support for future expansion (Slack, Webhooks)
-
-
 
 Error Filtering: Intelligent filtering to distinguish between critical failures and non-critical warnings
 
-
-
 Rate Limiting: Prevents alert flooding when multiple cron failures occur in quick succession
-
-
 
 Detailed Error Context: Includes cron command, user, timestamp, and error output in alerts
 
@@ -42,7 +31,7 @@ Container & Service Ready: Includes Docker, systemd, and reverse proxy configura
 
 Comprehensive Logging: Application logging with rotation and configurable verbosity
 
-3. Architecture Overview
+## 3. Architecture Overview
 
 ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
 │   System Cron   │───▶│   Cron Logs     │───▶│   Log Monitor   │
@@ -63,29 +52,17 @@ Comprehensive Logging: Application logging with rotation and configurable verbos
 
 Data Flow:
 
-
-
-
-
 System cron jobs execute and write to log files
-
-
 
 Monitor reads and parses cron logs in real-time
 
-
-
 Error detector identifies failures based on exit codes and error patterns
-
-
 
 Alert engine formats messages and sends via configured channels
 
-
-
 Administrators receive actionable notifications
 
-4. Recommended Repository Structure
+## 4. Recommended Repository Structure
 
 cron-monitor/
 ├── .env.example                 # Environment variable template
@@ -120,7 +97,7 @@ cron-monitor/
     └── deployment-guide.md
 
 
-5. Secure Configuration Strategy
+## 5. Secure Configuration Strategy
 
 Principle: Never commit secrets to version control. Follow the 12-factor app methodology.
 
@@ -227,7 +204,7 @@ HEALTH_CHECK_PATH=/health
 METRICS_ENABLED=false                      # Prometheus metrics endpoint
 
 
-7. config.py Example Using Environment Variables
+## 7. config.py Example Using Environment Variables
 
 """
 Configuration Management Module
