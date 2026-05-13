@@ -1,6 +1,6 @@
 ## Cron Monitor & Error Alert System - Project Documentation
 
-1. Project Overview
+# 1. Project Overview
 
 The Cron Monitor & Error Alert System is a security-conscious Python application designed to monitor cron job executions and send immediate alerts when failures occur. It parses system cron logs, detects errors, and notifies administrators via configurable channels (primarily email). The system is built with security as a primary consideration, ensuring no sensitive data is exposed in configuration files or logs.
 
