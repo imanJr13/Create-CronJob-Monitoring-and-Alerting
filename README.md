@@ -102,32 +102,20 @@ cron-monitor/
 Principle: Never commit secrets to version control. Follow the 12-factor app methodology.
 
 
-
-
-
 Environment Variables: All sensitive data stored in environment variables
-
-
 
 Configuration Validation: Validate all required variables at startup
 
 
-
 Secret Rotation: Support for easy secret rotation without code changes
 
-
-
 Least Privilege: Application runs with minimal necessary permissions
-
 
 
 Configuration Templates: .env.example provided without real values
 
 
-
 Secure Defaults: Fail-secure defaults for all security settings
-
-
 
 Audit Logging: All configuration access and changes logged
 
@@ -151,7 +139,7 @@ Regular security dependency updates
 
 Immutable infrastructure principles for deployments
 
-6. .env.example Contents
+## 6. .env.example Contents
 
 # ============================================
 # CRON MONITOR & ERROR ALERT SYSTEM
@@ -161,7 +149,7 @@ Immutable infrastructure principles for deployments
 # NEVER COMMIT .env TO VERSION CONTROL
 # ============================================
 
-# Application Settings
+## Application Settings
 APP_ENV=production                         # production|staging|development
 APP_DEBUG=false                            # true|false
 APP_LOG_LEVEL=INFO                         # DEBUG|INFO|WARNING|ERROR
@@ -169,7 +157,7 @@ APP_LOG_FILE=<APP_LOG_FILE>                # e.g., /var/log/cron-monitor/app.log
 APP_HOST=0.0.0.0                           # Binding address
 APP_PORT=5000                              # Application port
 
-# Cron Log Monitoring
+## Cron Log Monitoring
 CRON_LOG_PATHS=/var/log/cron,/var/log/syslog
 CRON_LOG_CHECK_INTERVAL=60                 # Seconds between log checks
 CRON_USER_FILTER=                          # Optional: comma-separated users to monitor
@@ -211,11 +199,13 @@ Configuration Management Module
 Handles environment variables and application settings securely.
 """
 
+```
 import os
 import logging
 from typing import List, Optional
 from dataclasses import dataclass
 from dotenv import load_dotenv
+
 
 # Load environment variables from .env file if it exists
 load_dotenv()
@@ -390,14 +380,15 @@ class Config:
 
 # Global configuration instance
 config = Config()
+```
 
-
-8. app.py Hardening Recommendations
+## 8. app.py Hardening Recommendations
 
 """
 Main Application Module with Security Hardening
 """
 
+```
 import os
 import sys
 import logging
@@ -689,10 +680,11 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+```
 
+## 9. requirements.txt Example
 
-9. requirements.txt Example
-
+```
 # Core dependencies
 python-dotenv==1.0.0
 PyYAML==6.0.1
@@ -727,7 +719,7 @@ mypy==1.7.0
 # Testing
 pytest-mock==3.12.0
 freezegun==1.2.2
+```
 
-# Documentation
 mkdocs==1.5.3
 mkdocs-material==9.5.3
